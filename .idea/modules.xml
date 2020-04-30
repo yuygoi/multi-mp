@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/multi-mp.iml" filepath="$PROJECT_DIR$/multi-mp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi-mp-annotation/multi-mp-annotation.iml" filepath="$PROJECT_DIR$/multi-mp-annotation/multi-mp-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi-mp-core/multi-mp-core.iml" filepath="$PROJECT_DIR$/multi-mp-core/multi-mp-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi-mp-extension/multi-mp-extension.iml" filepath="$PROJECT_DIR$/multi-mp-extension/multi-mp-extension.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi-mp-sample/multi-mp-sample.iml" filepath="$PROJECT_DIR$/multi-mp-sample/multi-mp-sample.iml" />
+    </modules>
+  </component>
+</project>

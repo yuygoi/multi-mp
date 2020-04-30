@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="multi-mp-annotation" />
+        <module name="multi-mp-core" />
+        <module name="multi-mp-extension" />
+        <module name="multi-mp-sample" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="multi-mp" target="1.5" />
+      <module name="multi-mp-annotation" target="1.5" />
+      <module name="multi-mp-core" target="1.8" />
+      <module name="multi-mp-extension" target="1.5" />
+      <module name="multi-mp-sample" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

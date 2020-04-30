@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  * Date : 2020/4/27 9:55
  */
 public abstract class AbstractMultiWrapper<Children extends AbstractMultiWrapper>
-        implements Query<From<Children>,Children>,
+        implements Query<From<Children>>,
         TableConnection<Join<Children>,Children>,
         Compare<Children>,
         MainConnectSub<Children>

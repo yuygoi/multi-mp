@@ -2,6 +2,8 @@ package com.franklin.multimpcore.wrapper.conditions.interfaces;
 
 import com.baomidou.mybatisplus.core.toolkit.LambdaUtils;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
+import com.franklin.multimpcore.wrapper.conditions.constants.Conditions;
+import com.franklin.multimpcore.wrapper.conditions.constants.SqlKeywords;
 import com.franklin.multimpcore.wrapper.util.Reflections;
 
 import java.util.Collection;
@@ -41,15 +43,25 @@ public interface Compare<Children> extends SqlStatement {
         return in(col,subWrapper, Reflections.getTableAlias(LambdaUtils.resolve(col)));
     }
 
-    <T> Children eq(SFunction<T,?> col,Object val,String tbAlias);
+    default <T> Children eq(SFunction<T,?> col,Object val,String tbAlias){
+        return compare(col,val,tbAlias, Conditions.EQ);
+    }
 
-    <T> Children ge(SFunction<T,?> col,Object val,String tbAlias);
+    default <T> Children ge(SFunction<T,?> col,Object val,String tbAlias){
+        return compare(col,val,tbAlias, Conditions.GE);
+    }
 
-    <T> Children le(SFunction<T,?> col,Object val,String tbAlias);
+    default <T> Children le(SFunction<T,?> col,Object val,String tbAlias){
+        return compare(col,val,tbAlias, Conditions.LE);
+    }
 
-    <T> Children lt(SFunction<T,?> col,Object val,String tbAlias);
+    default <T> Children lt(SFunction<T,?> col,Object val,String tbAlias){
+        return compare(col,val,tbAlias, Conditions.LT);
+    }
 
-    <T> Children gt(SFunction<T,?> col,Object val,String tbAlias);
+    default <T> Children gt(SFunction<T,?> col,Object val,String tbAlias){
+        return compare(col,val,tbAlias, Conditions.GT);
+    }
 
     <T> Children in(SFunction<T,?> col,Collection<?> collection,String tbAlias);
 

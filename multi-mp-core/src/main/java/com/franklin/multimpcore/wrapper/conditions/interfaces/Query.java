@@ -6,11 +6,8 @@ import com.franklin.multimpcore.wrapper.conditions.Select;
  * Create By: Franklin
  * Date : 2020/4/27 9:36
  */
-public interface Query<Children,Sub> extends SqlStatement {
+public interface Query<Children> extends SqlStatement {
 
     Children select(Select<?>...cols);
-
-    Children select(Sub subQuery);
-
 
 }

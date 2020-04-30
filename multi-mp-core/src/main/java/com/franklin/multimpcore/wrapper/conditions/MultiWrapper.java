@@ -34,71 +34,6 @@ public class MultiWrapper extends AbstractMultiWrapper<MultiWrapper>{
     }
 
     @Override
-    public From<MultiWrapper> select(MultiWrapper subQuery) {
-        return null;
-    }
-
-    @Override
-    public <T> MultiWrapper eq(SFunction<T, ?> col, Object val, String tbAlias) {
-        SerializedLambda resolve = LambdaUtils.resolve(col);
-        Map<String,Object> map = new HashMap<>();
-        map.put(Conditions.symbol,Conditions.EQ);
-        map.put(Conditions.condition,resolve);
-        map.put(Conditions.val,val);
-        map.put(Conditions.tableAlias,tbAlias);
-        this.conditions.add(map);
-        return this;
-    }
-
-    @Override
-    public <T> MultiWrapper ge(SFunction<T, ?> col, Object val, String tbAlias) {
-        SerializedLambda resolve = LambdaUtils.resolve(col);
-        Map<String,Object> map = new HashMap<>();
-        map.put(Conditions.symbol,Conditions.GE);
-        map.put(Conditions.condition,resolve);
-        map.put(Conditions.val,val);
-        map.put(Conditions.tableAlias,tbAlias);
-        this.conditions.add(map);
-        return this;
-    }
-
-    @Override
-    public <T> MultiWrapper le(SFunction<T, ?> col, Object val, String tbAlias) {
-        SerializedLambda resolve = LambdaUtils.resolve(col);
-        Map<String,Object> map = new HashMap<>();
-        map.put(Conditions.symbol,Conditions.LE);
-        map.put(Conditions.condition,resolve);
-        map.put(Conditions.val,val);
-        map.put(Conditions.tableAlias,tbAlias);
-        this.conditions.add(map);
-        return this;
-    }
-
-    @Override
-    public <T> MultiWrapper lt(SFunction<T, ?> col, Object val, String tbAlias) {
-        SerializedLambda resolve = LambdaUtils.resolve(col);
-        Map<String,Object> map = new HashMap<>();
-        map.put(Conditions.symbol,Conditions.LT);
-        map.put(Conditions.condition,resolve);
-        map.put(Conditions.val,val);
-        map.put(Conditions.tableAlias,tbAlias);
-        this.conditions.add(map);
-        return this;
-    }
-
-    @Override
-    public <T> MultiWrapper gt(SFunction<T, ?> col, Object val, String tbAlias) {
-        SerializedLambda resolve = LambdaUtils.resolve(col);
-        Map<String,Object> map = new HashMap<>();
-        map.put(Conditions.symbol,Conditions.GT);
-        map.put(Conditions.condition,resolve);
-        map.put(Conditions.val,val);
-        map.put(Conditions.tableAlias,tbAlias);
-        this.conditions.add(map);
-        return this;
-    }
-
-    @Override
     public <T> MultiWrapper in(SFunction<T, ?> col, Collection<?> collection, String tbAlias) {
         SerializedLambda resolve = LambdaUtils.resolve(col);
         Map<String,Object> map = new HashMap<>();
@@ -118,6 +53,18 @@ public class MultiWrapper extends AbstractMultiWrapper<MultiWrapper>{
         map.put(Conditions.val,subWrapper);
         map.put(Conditions.tableAlias,tbAlias);
         map.put(Conditions.symbol,SqlKeywords.IN);
+        this.conditions.add(map);
+        return this;
+    }
+
+    @Override
+    public <T> MultiWrapper compare(SFunction<T, ?> col, Object val, String tbAlias, String symbol) {
+        SerializedLambda resolve = LambdaUtils.resolve(col);
+        Map<String,Object> map = new HashMap<>();
+        map.put(Conditions.symbol,symbol);
+        map.put(Conditions.condition,resolve);
+        map.put(Conditions.val,val);
+        map.put(Conditions.tableAlias,tbAlias);
         this.conditions.add(map);
         return this;
     }
